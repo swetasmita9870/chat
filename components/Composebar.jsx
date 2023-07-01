@@ -211,6 +211,7 @@ const Composebar = () => {
                     inputText.trim().length > 0 ? "bg-c4" : ""
                 }`}
                 onClick={editMsg ? handleEdit : handleSend}
+                disabled={!inputText}
             >
                 <TbSend size={20} className="text-white" />
             </button>

@@ -84,19 +84,28 @@ const Login = () => {
     return isLoading || (!isLoading && currentUser) ? (
         <Loader />
     ) : (
-        <div className="h-[100vh] flex justify-center items-center bg-c1">
+            <div className="h-[100vh] flex justify-center items-center bg-c6">
             <ToastMessage />
-            <div className="flex items-center flex-col">
-                <div className="text-center">
-                    <div className="text-4xl font-bold">
-                        Login to Your Account
+                <div className="flex items-center flex-col bg-slate-600 p-3 shadow-inner shadow-slate-400 rounded-lg">
+                    <div className="flex items-center justify-center">
+                        <img
+                            src="/LongLogo.png"
+                            height={45}
+                            width={45}
+                        />
+                        <h1 className="text-4xl font-extrabold font-mono bg-gradient-to-r text-transparent bg-clip-text from-indigo-800 via-purple-600 to-pink-600">Connectify</h1>
                     </div>
                     <div className="mt-3 text-c3">
-                        Connect and chat with anyone, anywhere
+                        Connect with your Favorite one, anywhere
                     </div>
-                </div>
+                    <div className="text-center">
+                        <div className="text-2xl font-bold">
+                            Login to Your Account
+                        </div>
 
-                <div className="flex items-center gap-2 w-full mt-10 mb-5">
+                    </div>
+
+                    <div className="flex items-center gap-2 w-full mt-6 mb-5">
                     <div
                         className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-1/2 h-14 rounded-md cursor-pointer p-[1px]"
                         onClick={signInWithGoogle}

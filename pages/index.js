@@ -25,7 +25,7 @@ const Home = () => {
             <div className="flex w-full shrink-0">
                 <LeftNav />
 
-                <div className="flex bg-c2 grow">
+                    <div className="flex bg-c6 grow">
                     <div className="w-[400px] p-5 overflow-auto scrollbar shrink-0 border-r border-white/[0.05]">
                         <div className="flex flex-col h-full">
                             <Chats />

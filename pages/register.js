@@ -87,16 +87,24 @@ const Register = () => {
     return isLoading || (!isLoading && currentUser) ? (
         <Loader />
     ) : (
-        <div className="h-[100vh] flex justify-center items-center bg-c1">
-            <div className="flex items-center flex-col">
-                <div className="text-center">
-                    <div className="text-4xl font-bold">Create New Account</div>
-                    <div className="mt-3 text-c3">
-                        Connect and chat with anyone, anywhere
+            <div className="h-[100vh] flex justify-center items-center bg-c6">
+                <div className="flex items-center flex-col bg-slate-600 p-3 shadow-inner shadow-slate-400 rounded-lg">
+                    <div className="flex items-center justify-center">
+                        <img
+                            src="/LongLogo.png"
+                            height={45}
+                            width={45}
+                        />
+                        <h1 className="text-4xl font-extrabold font-mono">Connectify</h1>
                     </div>
+                    <div className="mt-3 text-c3">
+                        Connect with your Favorite one, anywhere
+                    </div>
+                    <div className="text-center">
+                        <div className="text-3xl font-bold">Create New Account</div>
                 </div>
 
-                <div className="flex items-center gap-2 w-full mt-10 mb-5">
+                    <div className="flex items-center gap-2 w-full mt-6 mb-5">
                     <div
                         className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-1/2 h-14 rounded-md cursor-pointer p-[1px]"
                         onClick={signInWithGoogle}
