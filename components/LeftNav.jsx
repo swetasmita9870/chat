@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BiEdit, BiCheck } from "react-icons/bi";
 import Avatar from "./Avatar";
 import { useAuth } from "@/context/authContext";
-import Icon from "./Icon";
 
 import { FiPlus } from "react-icons/fi";
 import { IoLogOutOutline, IoClose } from "react-icons/io5";
@@ -17,6 +16,7 @@ import { db, auth, storage } from "@/firebase/firebase";
 import { updateProfile } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import UsersPopup from "./popup/UsersPopup";
+import Icon from "./icon";
 
 const LeftNav = () => {
     const [usersPopup, setUsersPopup] = useState(false);

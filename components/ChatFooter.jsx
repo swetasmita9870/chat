@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Icon from "./Icon";
 
 import { CgAttachment } from "react-icons/cg";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
@@ -9,6 +8,7 @@ import ClickAwayListener from "react-click-away-listener";
 import { useChatContext } from "@/context/chatContext";
 import { IoClose } from "react-icons/io5";
 import { MdDeleteForever } from "react-icons/md";
+import Icon from "./icon";
 
 const ChatFooter = () => {
     const [showImojiPicker, setShowImojiPicker] = useState(false);

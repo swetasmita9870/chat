@@ -1,9 +1,9 @@
 import { useChatContext } from "@/context/chatContext";
 import React, { useState } from "react";
 import Avatar from "./Avatar";
-import Icon from "./Icon";
 import { IoEllipsisVerticalSharp } from "react-icons/io5";
 import ChatMenu from "./ChatMenu";
+import Icon from "./icon";
 
 const ChatHeader = () => {
     const [showMenu, setShowMenu] = useState(false);

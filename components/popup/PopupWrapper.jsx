@@ -1,6 +1,6 @@
 import React from "react";
-import Icon from "../Icon";
 import { IoClose } from "react-icons/io5";
+import Icon from "../icon";
 const PopupWrapper = (props) => {
     return (
         <div className="fixed top-0 left-0 z-20 w-full h-full flex items-center justify-center">
