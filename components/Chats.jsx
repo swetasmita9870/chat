@@ -111,9 +111,9 @@ const Chats = () => {
                                 handleSelect(user);
 
                                 const chatId =
-                                    currentUser.uid > user.uid
-                                        ? currentUser.uid + user.uid
-                                        : user.uid + currentUser.uid;
+                                    currentUser?.uid > user?.uid
+                                        ? currentUser?.uid + user?.uid
+                                        : user?.uid + currentUser?.uid;
 
                                 readChat(chatId);
                             }
@@ -146,7 +146,7 @@ const Chats = () => {
         const chatRef = doc(db, "chats", chatId);
         const chatDoc = await getDoc(chatRef);
 
-        let updatedMessages = chatDoc.data().messages.map((m) => {
+        let updatedMessages = chatDoc.data()?.messages.map((m) => {
             if (m?.read === false) {
                 m.read = true;
             }
