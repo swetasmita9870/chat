@@ -128,7 +128,10 @@ const Message = ({ message }) => {
                                 )}
                         </>
                     )}
-
+                    <div>
+                        {message.read ? <img className="absolute bottom-1 right-1" width={20} height={20} src="/double-check.png" /> :
+                            <img className="absolute bottom-1 right-1" width={20} height={20} src="/double-check.svg" />}
+                    </div>
                     <div
                         className={`${
                             showMenu ? "" : "hidden"

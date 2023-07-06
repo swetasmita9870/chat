@@ -5,10 +5,12 @@ const Icon = ({ size, icon, onClick, className }) => {
         size === "small"
             ? "w-8 h-8"
             : size === "medium"
-            ? "w-9 h-9"
-            : size === "large"
-            ? "w-10 h-10"
-            : "w-12 h-12";
+                ? "w-9 h-9"
+                : size === "large"
+                    ? "w-10 h-10"
+                    : size === "ex-small"
+                        ? "w-5 h-5"
+                        : "w-12 h-12";
     return (
         <div
             className={`${c} rounded-full flex items-center justify-center hover:bg-c1 cursor-pointer ${className}`}

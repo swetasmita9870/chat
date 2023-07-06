@@ -179,7 +179,7 @@ const Chats = () => {
                 />
             </div>
 
-            <ul className="flex flex-col w-full my-5 gap-[2px]">
+            {Object.keys(users || {}).length ? <ul className="flex flex-col w-full my-5 gap-[2px]">
                 {Object.keys(users || {}).length > 0 &&
                     filteredChats?.map((chat) => {
                         const timestamp = new Timestamp(
@@ -227,7 +227,10 @@ const Chats = () => {
                             </li>
                         );
                     })}
-            </ul>
+            </ul> : <div className="flex flex-col  justify-center items-center h-[100vh]">
+                <img height={250} width={250} src='/nodata.png' />
+                <span>No Meaasge found!</span>
+            </div>}
         </div>
     );
 };

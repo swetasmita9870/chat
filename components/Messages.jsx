@@ -34,7 +34,7 @@ const Messages = () => {
             ref={ref}
             className="grow p-5 overflow-auto scrollbar flex flex-col"
         >
-            {messages
+            {messages.length ? messages
                 ?.filter((m) => {
                     return (
                         m?.deletedInfo?.[currentUser.uid] !== DELETED_FOR_ME &&
@@ -44,7 +44,10 @@ const Messages = () => {
                 })
                 ?.map((m) => {
                     return <Message message={m} key={m.id} />;
-                })}
+                }) : <div className="flex flex-col  justify-center items-center h-[100vh]">
+                <img height={250} width={250} src='/nodata.png' />
+                <span>No Meaasge found!</span>
+            </div>}
         </div>
     );
 };
