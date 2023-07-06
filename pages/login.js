@@ -3,13 +3,14 @@ import React, { useEffect, useState } from "react";
 
 import { IoLogoGoogle, IoLogoFacebook } from "react-icons/io";
 
-import { auth } from "@/firebase/firebase";
+import { auth, db } from "@/firebase/firebase";
 import {
     signInWithEmailAndPassword,
     GoogleAuthProvider,
     FacebookAuthProvider,
     signInWithPopup,
     sendPasswordResetEmail,
+    updateProfile,
 } from "firebase/auth";
 import { useAuth } from "@/context/authContext";
 
@@ -21,6 +22,8 @@ const fProvider = new FacebookAuthProvider();
 import ToastMessage from "@/components/ToastMessage";
 import { toast } from "react-toastify";
 import Loader from "@/components/Loader";
+import { doc, setDoc } from "firebase/firestore";
+import CustomHead from "@/components/head";
 
 const Login = () => {
     const router = useRouter();
@@ -29,11 +32,10 @@ const Login = () => {
 
     useEffect(() => {
         if (!isLoading && currentUser) {
-            // it means user loged in
             router.push("/");
         }
     }, [currentUser, isLoading]);
-
+    console.log(currentUser, "currentUser")
     const handleSumbit = async (e) => {
         e.preventDefault();
         const email = e.target[0].value;
@@ -47,7 +49,20 @@ const Login = () => {
 
     const signInWithGoogle = async () => {
         try {
-            await signInWithPopup(auth, gProvider);
+            const { user } = await signInWithPopup(auth, gProvider);
+            await setDoc(doc(db, "users", user.uid), {
+                uid: user.uid,
+                displayName: user.displayName,
+                email: user.email,
+                color: "#000",
+            });
+
+            await setDoc(doc(db, "userChats", user.uid), {});
+
+            await updateProfile(user, {
+                displayName: user.displayName,
+            });
+            router.push("/");
         } catch (error) {
             console.error(error);
         }
@@ -56,6 +71,7 @@ const Login = () => {
     const signInWithFacebook = async () => {
         try {
             await signInWithPopup(auth, fProvider);
+            router.push("/");
         } catch (error) {
             console.error(error);
         }
@@ -84,9 +100,11 @@ const Login = () => {
     return isLoading || (!isLoading && currentUser) ? (
         <Loader />
     ) : (
-            <div className="h-[100vh] flex justify-center items-center bg-c6">
+            <div>
+                <CustomHead />
+                <div className="h-[100vh] flex justify-center items-center bg-c6">
             <ToastMessage />
-                <div className="flex items-center flex-col bg-slate-600 p-3 shadow-inner shadow-slate-400 rounded-lg">
+                    <div className="flex items-center flex-col rounded-lg">
                     <div className="flex items-center justify-center">
                         <img
                             src="/LongLogo.png"
@@ -105,8 +123,8 @@ const Login = () => {
 
                     </div>
 
-                    <div className="flex items-center gap-2 w-full mt-6 mb-5">
-                    <div
+                        <div className="flex items-center gap-2 w-full mt-0 mb-5">
+                            {/* <div
                         className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-1/2 h-14 rounded-md cursor-pointer p-[1px]"
                         onClick={signInWithGoogle}
                     >
@@ -124,14 +142,14 @@ const Login = () => {
                             <IoLogoFacebook size={24} />
                             <span>Login with Facebook</span>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
-                <div className="flex items-center gap-1">
+                        {/* <div className="flex items-center gap-1">
                     <span className="w-5 h-[1px] bg-c3"></span>
                     <span className="text-c3 font-semibold">OR</span>
                     <span className="w-5 h-[1px] bg-c3"></span>
-                </div>
+                </div> */}
 
                 <form
                     className="flex flex-col items-center gap-3 w-[500px] mt-5"
@@ -174,6 +192,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
+            </div>
     );
 };
 

@@ -75,9 +75,6 @@ const Register = () => {
             await updateProfile(user, {
                 displayName,
             });
-
-            console.log(user);
-
             router.push("/");
         } catch (error) {
             console.error(error);
@@ -88,7 +85,7 @@ const Register = () => {
         <Loader />
     ) : (
             <div className="h-[100vh] flex justify-center items-center bg-c6">
-                <div className="flex items-center flex-col bg-slate-600 p-3 shadow-inner shadow-slate-400 rounded-lg">
+                <div className="flex items-center flex-col rounded-lg">
                     <div className="flex items-center justify-center">
                         <img
                             src="/LongLogo.png"
@@ -104,7 +101,7 @@ const Register = () => {
                         <div className="text-3xl font-bold">Create New Account</div>
                 </div>
 
-                    <div className="flex items-center gap-2 w-full mt-6 mb-5">
+                    {/* <div className="flex items-center gap-2 w-full mt-6 mb-5">
                     <div
                         className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-1/2 h-14 rounded-md cursor-pointer p-[1px]"
                         onClick={signInWithGoogle}
@@ -124,13 +121,13 @@ const Register = () => {
                             <span>Login with Facebook</span>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <div className="flex items-center gap-1">
+                    {/* <div className="flex items-center gap-1">
                     <span className="w-5 h-[1px] bg-c3"></span>
                     <span className="text-c3 font-semibold">OR</span>
                     <span className="w-5 h-[1px] bg-c3"></span>
-                </div>
+                </div> */}
 
                 <form
                     onSubmit={handleSumbit}
