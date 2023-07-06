@@ -48,17 +48,17 @@ const CustomHead = (props) => {
       <meta property="og:image:alt" content={props.altText || defaultAltText} />
 
       {/* WhatsApp */}
-      <meta property="og:site_name" content={defaultTitle} />
+      {/* <meta property="og:site_name" content={defaultTitle} />
       <meta property="og:image" content={props.ogImage || props.graphUrl || props.facebookUrl || OG_LOGO} />
       <meta property="og:image:secure_url" content={props.ogImage || props.facebookUrl || props.graphUrl || OG_LOGO} />
       <meta property="og:image:width" content="1920" />
       <meta property="og:image:height" content="1080" />
-      <meta property="og:image:alt" content={props.altText || defaultAltText} />
+      <meta property="og:image:alt" content={props.altText || defaultAltText} /> */}
 
       {/* WhatsApp */}
-      <meta property="og:whatsapp" content="true" />
-      <meta property="og:whatsapp:country" content="+91" /> {/* Replace "country code" with the actual country code */}
-      <meta property="og:whatsapp:phone" content="+918908877800" /> {/* Replace "phone number" with the actual phone number (with country code) */}
+      {/* <meta property="og:whatsapp" content="true" />
+      <meta property="og:whatsapp:country" content="+91" />
+      <meta property="og:whatsapp:phone" content="+918908877800" /> */}
     </NextHead>
   )
 }
