@@ -9,7 +9,6 @@ import { useChatContext } from "@/context/chatContext";
 import { IoClose } from "react-icons/io5";
 import { MdDeleteForever } from "react-icons/md";
 import Icon from "./icon";
-import Gif from "./popup/Gif";
 
 const ChatFooter = () => {
     const [showImojiPicker, setShowImojiPicker] = useState(false);
@@ -44,12 +43,6 @@ const ChatFooter = () => {
 
     return (
         <div className="flex items-center bg-c1/[0.5] p-2 rounded-xl relative">
-            {showGifPicker && <Gif
-                onHide={() => setShowGifPicker(false)}
-                shortHeight={true}
-                shortWidth={true}
-                setAttachment={setAttachment}
-            />}
             {attachmentPreview && (
                 <div className="absolute w-[100px] h-[100px] bottom-16 left-0 bg-c1 p-2 rounded-md">
                     <img src={attachmentPreview} />
