@@ -9,9 +9,11 @@ import { useChatContext } from "@/context/chatContext";
 import { IoClose } from "react-icons/io5";
 import { MdDeleteForever } from "react-icons/md";
 import Icon from "./icon";
+import Gif from "./popup/Gif";
 
 const ChatFooter = () => {
     const [showImojiPicker, setShowImojiPicker] = useState(false);
+    const [showGifPicker, setShowGifPicker] = useState(false);
 
     const onEmojiClick = (emojiData) => {
         let text = inputText;
@@ -42,6 +44,12 @@ const ChatFooter = () => {
 
     return (
         <div className="flex items-center bg-c1/[0.5] p-2 rounded-xl relative">
+            {showGifPicker && <Gif
+                onHide={() => setShowGifPicker(false)}
+                shortHeight={true}
+                shortWidth={true}
+                setAttachment={setAttachment}
+            />}
             {attachmentPreview && (
                 <div className="absolute w-[100px] h-[100px] bottom-16 left-0 bg-c1 p-2 rounded-md">
                     <img src={attachmentPreview} />
@@ -70,6 +78,9 @@ const ChatFooter = () => {
                     />
                 </label>
             </div>
+            <div className="shrink-0">
+                <img src="/⁭gif.png" height={25} width={25} onClick={() => setShowGifPicker(true)} />
+            </div>
 
             <div className="shrink-0 relative">
                 <Icon
@@ -95,7 +106,7 @@ const ChatFooter = () => {
             </div>
 
             {isTyping && (
-                <div className="absolute -top-6 left-4 bg-c2 w-full h-6">
+                <div className="absolute -top-6 left-4 bg-c6 w-full h-6">
                     <div className="flex gap-2 w-full h-full opacity-50 text-sm text-white">
                         {`${data?.user?.displayName} is typing`}
                         <img src="/typing.svg" />

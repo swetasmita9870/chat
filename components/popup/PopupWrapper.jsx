@@ -10,7 +10,7 @@ const PopupWrapper = (props) => {
             ></div>
 
             <div
-                className={`flex flex-col w-[500px] max-h-[80%] bg-c6 relative z-10 rounded-3xl ${
+                className={`flex flex-col  ${props.shortWidth ? "w-[300px]" : "w-[500px]"} max-h-[80%] bg-c6 relative z-10 rounded-3xl ${
                     props.shortHeight ? "" : "min-h-[600px]"
                 }`}
             >
